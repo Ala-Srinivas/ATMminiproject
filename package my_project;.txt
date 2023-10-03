@@ -1,0 +1,97 @@
+package my_project;
+import java.util.*;
+
+public class ATM_miniproject {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int pin=1234;
+		int balance=100000;
+		int add_amount=0;
+		int take_amount=0;
+		
+		String Name;
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter your PIN");
+		
+		int password=sc.nextInt();
+		
+		if(password==pin )
+		{
+			System.out.println("Enter your name");
+			Name=sc.next();
+			System.out.println("Welcome  "+Name);
+			
+			
+			while(true) {
+				System.out.println("________________________");
+				System.out.println("1 to Check Balance");
+				System.out.println("2 to Deposit Amount");
+				System.out.println("3 to Withdraw Amount");
+				System.out.println("4 to take Receipt");
+				System.out.println("5 to Exit");
+				System.out.println("_________________________");
+				int option= sc.nextInt();
+				switch(option)
+				{
+				case 1:
+					System.out.println("Avaliable balance  is:"+balance);
+					break;
+				case 2:
+					System.out.println("Enter the amount to add");
+					add_amount=sc.nextInt();
+					System.out.println("Sucessfully deposited");
+					balance=add_amount+balance;
+					break;
+				case 3:
+					System.out.println("Enter the amount to take");
+					take_amount=sc.nextInt();
+					if(take_amount>balance)
+					{
+						System.out.println("Your balance is insufficient");
+						
+					}
+					else
+					{
+					System.out.println("Sucessfully withdrawn");
+					balance=balance-take_amount;
+					break;
+					}
+				case 4:
+				{
+					System.out.println("welcome to ATM");
+					System.out.println("Available balanceis "+balance);
+					System.out.println("Amount deposited    "+add_amount);
+					System.out.println("Amount taken        "+take_amount);
+					System.out.println("Thanks for comming");
+					break;
+					
+				}
+				case 5:
+				{
+					System.out.println("Thank you , Have a Nice Day");
+					
+					System.exit(0);
+					break;
+					
+				}
+				default:
+				{
+					System.out.println("press the number below 5");
+				}
+				}
+				
+			}
+		}
+		else
+		{
+			System.out.println("Wrong password ");
+			System.out.println("Please Enter the correct Password !!! ");
+			
+		}
+		
+
+	}
+
+}
